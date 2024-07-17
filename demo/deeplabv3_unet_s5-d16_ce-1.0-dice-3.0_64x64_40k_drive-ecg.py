@@ -54,12 +54,14 @@ model = dict(
     auxiliary_head=dict(
         align_corners=False,
         channels=64,
+        out_channels=1,
+        threshold=0.3,
         concat_input=False,
         dropout_ratio=0.1,
         in_channels=128,
         in_index=3,
         loss_decode=dict(
-            loss_weight=0.4, type='CrossEntropyLoss', use_sigmoid=False),
+            loss_weight=0.4, type='CrossEntropyLoss', use_sigmoid=True),
         norm_cfg=dict(requires_grad=True, type='BN'),
         num_classes=2,
         num_convs=1,
@@ -136,6 +138,8 @@ model = dict(
     decode_head=dict(
         align_corners=False,
         channels=16,
+        out_channels=1,
+        threshold=0.3,
         dilations=(
             1,
             12,
@@ -147,8 +151,8 @@ model = dict(
         in_index=4,
         loss_decode=[
             dict(
-                loss_name='loss_ce', loss_weight=1.0, type='CrossEntropyLoss'),
-            dict(loss_name='loss_dice', loss_weight=3.0, type='DiceLoss'),
+                loss_name='loss_ce', loss_weight=3.0, type='CrossEntropyLoss', use_sigmoid=True),
+            dict(loss_name='loss_dice', loss_weight=2.0, type='DiceLoss'),
         ],
         norm_cfg=dict(requires_grad=True, type='BN'),
         num_classes=2,
