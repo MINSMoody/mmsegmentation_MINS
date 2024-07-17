@@ -1,6 +1,16 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 from mmengine.utils import is_str
 
+def moody_classes():
+    """Moody class names for external use."""
+    return [
+        'signal', 'background'
+    ]
+    
+def moody_palette():
+    """Moody palette for external use."""
+    return [[255, 255, 255], [0, 0, 0]]
+
 
 def cityscapes_classes():
     """Cityscapes class names for external use."""
@@ -489,6 +499,7 @@ def hsidrive_palette():
 
 
 dataset_aliases = {
+    'moody': ['moody'],
     'cityscapes': ['cityscapes'],
     'ade': ['ade', 'ade20k'],
     'voc': ['voc', 'pascal_voc', 'voc12', 'voc12aug'],

@@ -118,3 +118,8 @@ mmseg/.mim
 
 # Pytorch
 *.pth
+
+demo/ECGData copy/
+demo/ECGData/
+demo/iccv09Data/
+demo/stanford_background.tar.gz
